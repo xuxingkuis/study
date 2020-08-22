@@ -1,7 +1,7 @@
-console.log(`远程测试`);
-$notification.post('title标题title标题', 'subTitle子标题subTitle子标题subTitle子标题','body内容body内容body内容body内容body内容body内容') //用于通知栏提醒
+//console.log(`远程测试`);
+//$notification.post('title标题title标题', 'subTitle子标题subTitle子标题subTitle子标题','body内容body内容body内容body内容body内容body内容') //用于通知栏提醒
 
-/*
+
 const $iosrule = iosrule();//声明必须
 
 const app = "趣看天下";
@@ -105,9 +105,6 @@ function iosrule() {
     }
     return { isRequest, isQuanX, isSurge, notify, write, read, get, post, end }
 };
-
-
-*/
 
 
 
