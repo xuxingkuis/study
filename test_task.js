@@ -43,19 +43,27 @@ function main() {
 function qktx_read() {
 
 
-    const url = { url: readUrl, headers: { "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 NetType/WIFI Qktx" }, timeout: 60 };
+    const url = { url: readUrl, headers: { "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 NetType/WIFI Qktx" }, timeout: 600 };
 
     $iosrule.get(url, function (error, response, data) {
+
+        console.log("[readUrl返回的data]:" + data);
+
+
+
         if (data != null) {
 
             var obj = JSON.parse(data);
             if (obj.result == 1) {
                 console.log("[阅读文章奖励]" + obj.data.coinCount);
                 $iosrule.notify(app, "[阅读文章]", "[阅读文章奖励]" + obj.data.coinCount);
+            } else {
+
+                console.log("[阅读文章失败]" + obj.mes);
+                $iosrule.notify(app, "[阅读文章]", "[阅读文章失败]" + obj.mes);
             }
         } else {
-            console.log("[阅读文章失败]" + obj.mes);
-            $iosrule.notify(app, "[阅读文章]", "[阅读文章失败]" + obj.mes);
+            console.log("[数据为null,出错了]:"+data);
         }
     })
 
