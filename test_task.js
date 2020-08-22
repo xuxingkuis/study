@@ -19,13 +19,15 @@ function main() {
 
     setTimeout(function () {
         //qktx_read();
-        console.log("远程测试日志"+app);
+        console.log("[readUrl]:"+readUrl);
     }, 0.5 * 1000);
 
 
     setTimeout(function () {
         //qktx_ss();
-        $iosrule.notify(app, "[远程测试]", "[远程测试弹窗]" + app);
+        //$iosrule.notify(app, "[远程测试]", "[远程测试弹窗]" + app);
+        console.log("[searchUrl]:"+searchUrl);
+        console.log("[searchBody]:"+searchBody);
     }, 2 * 1000);
 
 
