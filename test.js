@@ -40,7 +40,7 @@ function qktx_writeck() {
             
 
         }
-        else if (urlVal.indexOf("addCoinSearch?") != -1) {
+        else if (urlVal.indexOf("addCoinSearch") != -1) {
 
             console.log(`已经进入addCoinSearch页面`);
             
