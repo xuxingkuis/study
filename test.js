@@ -30,22 +30,27 @@ function qktx_writeck() {
 
         if (urlval.indexOf("addCoin?") != -1) {
 
+                console.log(`已经进入addCoin页面`);
+            /*
             var ok = $iosrule.write(urlVal, "readUrl"); //阅读文章好后金币url和参数保存下来,因为是get的 
             if (ok == true) {
                 $iosrule.notify(app, "[阅读文章]", "写入阅读文章数据成功");
                 console.log(`写入阅读文章数据成功`);
             }
+            */
 
         }
         else if (urlval.indexOf("addCoinSerch?") != -1) {
 
+            console.log(`已经进入addCoinSerach页面`);
+            /*
             var ok1 = $iosrule.write(urlVal, "searchUrl"); //因为是post的 
             var ok2 = $iosrule.write(bdVal, "searchBody");
             if (ok1 == true && ok2 == true) {
                 $iosrule.notify(app, "[搜索文章]", "写入搜索文章数据成功");
                 console.log(`写入搜索文章数据成功`);
             }
-
+            */
 
         }
 
