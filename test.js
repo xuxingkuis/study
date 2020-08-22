@@ -14,7 +14,7 @@ if ($iosrule.isRequest) {
 
 }
 
-$iosrule.end()
+$iosrule.end();
 
 
 function qktx_writeck() {
