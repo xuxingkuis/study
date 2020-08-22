@@ -1,7 +1,7 @@
-console.log(`远程测试`);
-$notification.post('title标题title标题', 'subTitle子标题subTitle子标题subTitle子标题','body内容body内容body内容body内容body内容body内容') //用于通知栏提醒
-$done({});
-/*
+//console.log(`远程测试`);
+//$notification.post('title标题title标题', 'subTitle子标题subTitle子标题subTitle子标题','body内容body内容body内容body内容body内容body内容') //用于通知栏提醒
+///$done({});
+
 const $iosrule = iosrule();//声明必须
 
 const app = "趣看天下";
@@ -28,7 +28,7 @@ function qktx_writeck() {
 
         console.log(`当前抓到的url是:${urlVal}`);
 
-        if (urlval.indexOf("addCoin?") != -1) {
+        if (urlVal.indexOf("addCoin?") != -1) {
 
                 console.log(`已经进入addCoin页面`);
             
@@ -40,7 +40,7 @@ function qktx_writeck() {
             
 
         }
-        else if (urlval.indexOf("addCoinSerch?") != -1) {
+        else if (urlVal.indexOf("addCoinSerch?") != -1) {
 
             console.log(`已经进入addCoinSerach页面`);
             
@@ -111,7 +111,7 @@ function iosrule() {
     return { isRequest, isQuanX, isSurge, notify, write, read, get, post, end }
 };
 
-*/
+
 
 
 
