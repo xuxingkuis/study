@@ -40,9 +40,9 @@ function qktx_writeck() {
             
 
         }
-        else if (urlVal.indexOf("addCoinSerch?") != -1) {
+        else if (urlVal.indexOf("addCoinSearch?") != -1) {
 
-            console.log(`已经进入addCoinSerach页面`);
+            console.log(`已经进入addCoinSearch页面`);
             
             var ok1 = $iosrule.write(urlVal, "searchUrl"); //因为是post的 
             var ok2 = $iosrule.write(bdVal, "searchBody");
