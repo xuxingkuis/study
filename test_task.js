@@ -18,18 +18,22 @@ main();
 function main() {
 
     setTimeout(function () {
-        //qktx_read();
+        
         console.log("[readUrl]:"+readUrl);
+        
+        qktx_read();
+        
     }, 0.5 * 1000);
 
 
+    /*
     setTimeout(function () {
         //qktx_ss();
         //$iosrule.notify(app, "[远程测试]", "[远程测试弹窗]" + app);
         console.log("[searchUrl]:"+searchUrl);
         console.log("[searchBody]:"+searchBody);
     }, 2 * 1000);
-
+    */
 
 }
 
