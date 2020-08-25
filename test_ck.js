@@ -24,7 +24,7 @@ $iosrule.end();
 
 function writeCk() {
 
-    console.log(`当前捕获到url链接:${urlVal}`);
+    console.log(`[当前捕获到url链接]:${urlVal}`);
 
     if (urlVal.indexOf("frontend/read/sych/duration") != -1) {
 
@@ -38,7 +38,7 @@ function writeCk() {
                 $iosrule.notify(app, "[文章阅读]数据写入成功", "");
         }
 
-        else if (bdVal.indexOf("video") != -1) {
+        else if (bdVal.indexOf("video") != -1 && bdVal.indexOf("self_smallvideo") < 0) {
 
             var oksp = $iosrule.write(bdVal, "spbd");
 
