@@ -78,8 +78,12 @@ function wz() {
 
 function sp() {
 
+    var nbd = xgbd(spbd);
+    console.log("[视频阅读url]:" + rdurl);
+    console.log("[视频阅读前bd]:" + spbd);
+    console.log("[视频阅读后bd]:" + nbd);
 
-    const llUrl1 = { url: rdurl,headers: { "Content-Type": "application/json"}, body: xgbd(spbd) };
+    const llUrl1 = { url: rdurl,headers: { "Content-Type": "application/json"}, body: nbd };
 
     $iosrule.post(llUrl1, function (error, response, data) {
 
@@ -108,8 +112,12 @@ function sp() {
 
 function xsp() {
 
+    var nbd = xgbd(spbd);
+    console.log("[小视频阅读url]:" + rdurl);
+    console.log("[小视频阅读前bd]:" + spbd);
+    console.log("[小视频阅读后bd]:" + nbd);
 
-    const llUrl1 = { url: rdurl,headers: { "Content-Type": "application/json"}, body: xgbd(xspbd) };
+    const llUrl1 = { url: rdurl,headers: { "Content-Type": "application/json"}, body: nbd };
 
     $iosrule.post(llUrl1, function (error, response, data) {
 
