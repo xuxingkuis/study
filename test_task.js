@@ -1,91 +1,79 @@
+//console.log('测试写出日志'); //输出日志
 
-
-
-const $iosrule = iosrule();//声明必须
-
-const app = "趣看天下";
-
-var readUrl = $iosrule.read("readUrl");
-var searchUrl = $iosrule.read("searchUrl");
-var searchBody = $iosrule.read("searchBody");
-
-
-main();
+//$notification.post('title标题', 'subTitle子标题子标题子标题','body内容内容内容内容') //用于通知栏提醒
 
 
 
 
-function main() {
+
+
+
+
+
+
+
+
+
+var $iosrule = iosrule();//声明必须
+var app = "惠头条";
+
+
+var rdurl = $iosrule.read("rdurl");
+var wzbd = $iosrule.read("wzbd");
+var spbd = $iosrule.read("spbd");
+var xspbd = $iosrule.read("xspbd");
+
+
+
+task();
+
+
+function task() {
+
 
     setTimeout(function () {
-        
-        console.log("[readUrl]:"+readUrl);
-        
-        qktx_read();
-        
-    }, 0.5 * 1000);
+        wz();
+    }, 1 * 100);
 
-
-    /*
     setTimeout(function () {
-        //qktx_ss();
-        //$iosrule.notify(app, "[远程测试]", "[远程测试弹窗]" + app);
-        console.log("[searchUrl]:"+searchUrl);
-        console.log("[searchBody]:"+searchBody);
-    }, 2 * 1000);
-    */
+        sp();
+    }, 1 * 1000);
+
+
+    setTimeout(function () {
+        xsp();
+    }, 3 * 1000);
+
+
 
 }
 
 
 
 
-function qktx_read() {
+
+function wz() {
 
 
-    const url = { url: readUrl, headers: { "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 NetType/WIFI Qktx" }, timeout: 600 };
+    const llUrl1 = { url: rdurl, body: xgbd(wzbd) };
 
-    $iosrule.get(url, function (error, response, data) {
+    $iosrule.post(llUrl1, function (error, response, data) {
 
-        console.log("[readUrl返回的data]:" + data);
+        console.log("[文章阅读返回数据]:" + data);
 
+        var obj = JSON.parse(data);
 
+        if (obj.statusCode == 200) {
+            
+            console.log("[文章阅读金币奖励]:" + obj.incCredit );
+            $iosrule.notify(app,"[文章阅读金币奖励]:" + obj.incCredit,"");
+            
+           
+        }else{
+            console.log("[文章阅读失败]:" + obj.statusCode );
 
-        if (data != null) {
-
-            var obj = JSON.parse(data);
-            if (obj.result == 1) {
-                console.log("[阅读文章奖励]" + obj.data.coinCount);
-                $iosrule.notify(app, "[阅读文章]", "[阅读文章奖励]" + obj.data.coinCount);
-            } else {
-
-                console.log("[阅读文章失败]" + obj.mes);
-                $iosrule.notify(app, "[阅读文章]", "[阅读文章失败]" + obj.mes);
-            }
-        } else {
-            console.log("[数据为null,出错了]:"+data);
         }
-    })
-
-}
-
-
-function qktx_ss() {
-
-    const url = { url: searchUrl, headers: { "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 NetType/WIFI Qktx" }, body:searchBody,timeout: 60 };
-
-    $iosrule.post(url, function (error, response, data) {
-        if (data != null) {
-
-            var obj = JSON.parse(data);
-            if (obj.result == 1) {
-                console.log("[搜索文章奖励]" + obj.data.coinCount);
-                $iosrule.notify(app, "[搜索文章]", "[搜索文章奖励]" + obj.data.coinCount);
-            }
-        } else {
-            console.log("[搜索文章失败]" + obj.mes);
-            $iosrule.notify(app, "[搜索文章]", "[搜索文章失败]" + obj.mes);
-        }
+            
     })
 
 
@@ -94,8 +82,79 @@ function qktx_ss() {
 
 
 
+function sp() {
 
-//适合surge,圈x,loon三个通用写法
+
+    const llUrl1 = { url: rdurl, body: xgbd(spbd) };
+
+    $iosrule.post(llUrl1, function (error, response, data) {
+
+        console.log("[视频阅读返回数据]:" + data);
+
+        var obj = JSON.parse(data);
+
+        if (obj.statusCode == 200) {
+            
+            console.log("[视频阅读金币奖励]:" + obj.incCredit );
+            $iosrule.notify(app,"[视频阅读金币奖励]:" + obj.incCredit,"");
+            
+           
+        }else{
+            console.log("[视频阅读失败]:" + obj.statusCode );
+
+        }
+            
+    })
+
+
+}
+
+
+
+
+function xsp() {
+
+
+    const llUrl1 = { url: rdurl, body: xgbd(xspbd) };
+
+    $iosrule.post(llUrl1, function (error, response, data) {
+
+        console.log("[小视频阅读返回数据]:" + data);
+
+        var obj = JSON.parse(data);
+
+        if (obj.statusCode == 200) {
+            
+            console.log("[小视频阅读金币奖励]:" + obj.incCredit );
+            $iosrule.notify(app,"[小视频阅读金币奖励]:" + obj.incCredit,"");
+            
+           
+        }else{
+            console.log("[小视频阅读失败]:" + obj.statusCode );
+
+        }
+            
+    })
+
+
+}
+
+
+
+function xgbd(bd) {
+
+    if (JSON.parse(bd).hasOwnProperty("token")) {
+        bd = JSON.parse(bd); delete bd["token"]; bd = JSON.stringify(bd);
+        return bd;
+      }
+      else
+        return bd;
+
+
+}
+
+
+
 function iosrule() {
     const isRequest = typeof $request != "undefined"
     const isSurge = typeof $httpClient != "undefined"
@@ -140,6 +199,29 @@ function iosrule() {
     }
     return { isRequest, isQuanX, isSurge, notify, write, read, get, post, end }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
