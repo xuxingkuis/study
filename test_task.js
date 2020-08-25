@@ -1,4 +1,6 @@
+//console.log('测试写出日志'); //输出日志
 
+//$notification.post('title标题', 'subTitle子标题子标题子标题','body内容内容内容内容') //用于通知栏提醒
 
 
 
@@ -83,7 +85,7 @@ function sp() {
     console.log("[视频阅读前bd]:" + spbd);
     console.log("[视频阅读后bd]:" + nbd);
 
-    const llUrl1 = { url: rdurl,headers: { "Content-Type": "application/json"}, body: nbd };
+    const llUrl1 = { url: rdurl,headers: { "Content-Type": "application/json","User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"}, body: nbd };
 
     $iosrule.post(llUrl1, function (error, response, data) {
 
@@ -117,7 +119,7 @@ function xsp() {
     console.log("[小视频阅读前bd]:" + spbd);
     console.log("[小视频阅读后bd]:" + nbd);
 
-    const llUrl1 = { url: rdurl,headers: { "Content-Type": "application/json"}, body: nbd };
+    const llUrl1 = { url: rdurl,headers: { "Content-Type": "application/json"}, body: nbd ,timeout: 60};
 
     $iosrule.post(llUrl1, function (error, response, data) {
 
