@@ -32,12 +32,12 @@ function task() {
 
     setTimeout(function () {
         sp();
-    }, 10 * 1000);
+    }, 33 * 1000);
 
 
     setTimeout(function () {
         xsp();
-    }, 30 * 1000);
+    }, 66 * 1000);
 
 
 
