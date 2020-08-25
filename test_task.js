@@ -32,12 +32,12 @@ function task() {
 
     setTimeout(function () {
         sp();
-    }, 1 * 1000);
+    }, 10 * 1000);
 
 
     setTimeout(function () {
         xsp();
-    }, 3 * 1000);
+    }, 30 * 1000);
 
 
 
@@ -81,11 +81,9 @@ function wz() {
 function sp() {
 
     var nbd = xgbd(spbd);
-    console.log("[视频阅读url]:" + rdurl);
-    console.log("[视频阅读前bd]:" + spbd);
-    console.log("[视频阅读后bd]:" + nbd);
 
-    const llUrl1 = { url: rdurl,headers: { "Content-Type": "application/json","User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"}, body: nbd };
+
+    const llUrl1 = { url: rdurl,headers: { "Content-Type": "application/json"}, body: nbd };
 
     $iosrule.post(llUrl1, function (error, response, data) {
 
@@ -115,11 +113,8 @@ function sp() {
 function xsp() {
 
     var nbd = xgbd(spbd);
-    console.log("[小视频阅读url]:" + rdurl);
-    console.log("[小视频阅读前bd]:" + spbd);
-    console.log("[小视频阅读后bd]:" + nbd);
 
-    const llUrl1 = { url: rdurl,headers: { "Content-Type": "application/json"}, body: nbd ,timeout: 60};
+    const llUrl1 = { url: rdurl,headers: { "Content-Type": "application/json"}, body: nbd };
 
     $iosrule.post(llUrl1, function (error, response, data) {
 
