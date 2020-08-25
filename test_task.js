@@ -1,17 +1,10 @@
-//console.log('测试写出日志'); //输出日志
-
-//$notification.post('title标题', 'subTitle子标题子标题子标题','body内容内容内容内容') //用于通知栏提醒
 
 
 
 
 
 
-
-
-
-
-
+//惠头条邀请码 51830362 
 
 
 var $iosrule = iosrule();//声明必须
@@ -55,7 +48,7 @@ function task() {
 function wz() {
 
 
-    const llUrl1 = { url: rdurl, body: xgbd(wzbd) };
+    const llUrl1 = { url: rdurl,headers: { "Content-Type": "application/json"}, body: xgbd(wzbd) };
 
     $iosrule.post(llUrl1, function (error, response, data) {
 
@@ -71,6 +64,7 @@ function wz() {
            
         }else{
             console.log("[文章阅读失败]:" + obj.statusCode );
+            $iosrule.notify(app,"[文章阅读失败]:" + obj.statusCode,"");
 
         }
             
@@ -85,7 +79,7 @@ function wz() {
 function sp() {
 
 
-    const llUrl1 = { url: rdurl, body: xgbd(spbd) };
+    const llUrl1 = { url: rdurl,headers: { "Content-Type": "application/json"}, body: xgbd(spbd) };
 
     $iosrule.post(llUrl1, function (error, response, data) {
 
@@ -101,7 +95,7 @@ function sp() {
            
         }else{
             console.log("[视频阅读失败]:" + obj.statusCode );
-
+            $iosrule.notify(app,"[视频阅读失败]:" + obj.statusCode,"");
         }
             
     })
@@ -115,7 +109,7 @@ function sp() {
 function xsp() {
 
 
-    const llUrl1 = { url: rdurl, body: xgbd(xspbd) };
+    const llUrl1 = { url: rdurl,headers: { "Content-Type": "application/json"}, body: xgbd(xspbd) };
 
     $iosrule.post(llUrl1, function (error, response, data) {
 
@@ -131,6 +125,7 @@ function xsp() {
            
         }else{
             console.log("[小视频阅读失败]:" + obj.statusCode );
+            $iosrule.notify(app,"[小视频阅读失败]:" + obj.statusCode,"");
 
         }
             
@@ -199,36 +194,3 @@ function iosrule() {
     }
     return { isRequest, isQuanX, isSurge, notify, write, read, get, post, end }
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
