@@ -1,8 +1,11 @@
-//console.log(`远程测试`);
-//$notification.post('title标题title标题', 'subTitle子标题subTitle子标题subTitle子标题','body内容body内容body内容body内容body内容body内容') //用于通知栏提醒
-///$done({});
+//console.log('测试写出日志'); //输出日志
+
+//$notification.post('title标题', 'subTitle子标题子标题子标题','body内容内容内容内容') //用于通知栏提醒
 
 
+
+
+//惠头条邀请码 51830362 
 
 var $iosrule = iosrule();//声明必须
 var app = "惠头条";
@@ -35,7 +38,7 @@ function writeCk() {
                 $iosrule.notify(app, "[文章阅读]数据写入成功", "");
         }
 
-        else if (md_bd.indexOf("video") != -1) {
+        else if (bdVal.indexOf("video") != -1) {
 
             var oksp = $iosrule.write(bdVal, "spbd");
 
@@ -43,7 +46,7 @@ function writeCk() {
                 $iosrule.notify(app, "[视频阅读]数据写入成功", "");
         }
 
-        else if (md_bd.indexOf("self_smallvideo") != -1) {
+        else if (bdVal.indexOf("self_smallvideo") != -1) {
 
             var okxsp = $iosrule.write(bdVal, "xspbd");
 
@@ -108,6 +111,12 @@ function iosrule() {
     }
     return { isRequest, isQuanX, isSurge, notify, write, read, get, post, end }
 };
+
+
+
+
+
+
 
 
 
